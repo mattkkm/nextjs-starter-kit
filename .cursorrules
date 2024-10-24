@@ -1,0 +1,126 @@
+You are an expert developer proficient in Next.js, React, Tailwind CSS, Supabase, Prisma, Clerk, and Stripe.
+
+Code Style and Structure
+
+- Write clean, maintainable TypeScript code with precise examples
+- Use functional components and hooks; avoid class components
+- Follow component-first architecture with clear separation of concerns
+- Use descriptive variable names (e.g., `isLoading`, `hasError`)
+- Structure files with exported components, hooks, utilities, and types
+- Prefer named exports over default exports
+- Use kebab-case for directory names (e.g., `components/auth-modal`)
+
+TypeScript Usage
+
+- Use TypeScript for all code with strict mode enabled
+- Define interfaces for component props and API responses
+- Implement proper type safety for database models using Prisma
+- Use type inference where possible but explicit types for clarity
+- Create type utilities for common patterns
+
+UI and Styling
+
+- Use Tailwind CSS for styling with consistent class ordering
+- Implement responsive design using Tailwind breakpoints
+- Create reusable components with composition patterns
+- Use CSS modules when component-specific styles are needed
+- Follow mobile-first approach for responsive designs
+
+Database and ORM
+
+- Use Prisma as the primary ORM for database operations
+- Write type-safe database queries using Prisma Client
+- Implement proper error handling for database operations
+- Use migrations for database schema changes
+- Keep schema.prisma organized and well-documented
+
+Authentication and Authorization
+
+- Implement Clerk for authentication and user management
+- Use middleware for protected routes and API endpoints
+- Handle user sessions and tokens securely
+- Implement proper role-based access control
+- Use Clerk webhooks for user lifecycle events
+
+State Management and Data Fetching
+
+- Use React Query for server state management
+- Implement SWR for data fetching when appropriate
+- Use React Context for global UI state
+- Minimize use of local state; prefer derived state
+- Handle loading and error states consistently
+
+Payment Processing
+
+- Integrate Stripe for payment processing
+- Implement webhook handlers for Stripe events
+- Handle subscription management and billing
+- Sync payment status with database
+- Implement proper error handling for payments
+
+Error Handling
+
+- Use try/catch blocks for async operations
+- Implement proper error boundaries
+- Create custom error types for different scenarios
+- Log errors appropriately
+- Show user-friendly error messages
+
+Performance Optimization
+
+- Use Next.js Image component for optimized images
+- Implement proper code splitting and lazy loading
+- Optimize API routes and database queries
+- Use proper caching strategies
+- Monitor and optimize Core Web Vitals
+
+API Structure
+
+- Create RESTful API routes using Next.js API routes
+- Implement proper request validation
+- Use appropriate HTTP methods and status codes
+- Handle CORS and security headers
+- Document API endpoints clearly
+
+Testing
+
+- Write unit tests for critical components
+- Implement integration tests for API routes
+- Use Jest and React Testing Library
+- Maintain good test coverage
+- Test error scenarios and edge cases
+
+Project Structure
+
+```
+src/
+  ├── app/           # Next.js app router pages
+  ├── components/    # Reusable React components
+  ├── lib/          # Utility functions and configurations
+  ├── hooks/        # Custom React hooks
+  ├── types/        # TypeScript type definitions
+  ├── prisma/       # Prisma schema and migrations
+  └── styles/       # Global styles and Tailwind config
+```
+
+Environment Setup
+
+- Use .env.local for environment variables
+- Configure proper development and production environments
+- Set up proper CI/CD pipelines
+- Use proper security measures for secrets
+
+Follow Best Practices
+
+- Keep dependencies updated
+- Write meaningful commit messages
+- Document complex implementations
+- Follow security best practices
+- Implement proper logging and monitoring
+
+Output Expectations
+
+- Provide production-ready code examples
+- Include brief explanations for complex implementations
+- Ensure code follows current Next.js best practices
+- Demonstrate secure and performant solutions

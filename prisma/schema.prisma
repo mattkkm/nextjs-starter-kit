@@ -71,3 +71,10 @@ model invoices {
   email           String
   user_id         String?
 }
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+}
