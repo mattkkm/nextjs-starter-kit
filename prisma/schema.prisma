@@ -78,3 +78,97 @@ model Project {
   description String?
   createdAt   DateTime @default(now())
 }
+
+// This will store the industry research parameters and results
+model Industry {
+  id              String           @id @default(cuid())
+  name            String
+  description     String?
+  parameters      Json?            // Flexible storage for research parameters
+  majorPlayers    IndustryPlayer[]
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  userId          String           // Clerk user ID
+  reports         Report[]
+  companies       Company[]
+}
+
+model IndustryPlayer {
+  id          String    @id @default(cuid())
+  name        String
+  type        String    // "MAJOR" or "SMALL"
+  revenue     Float?
+  employeeCount Int?
+  industry    Industry  @relation(fields: [industryId], references: [id])
+  industryId  String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// Stores raw scraped data before processing
+model ScrapedData {
+  id          String    @id @default(cuid())
+  source      String    // "GOOGLE_MAPS", "YELP", "BBB", etc.
+  rawData     Json
+  processed   Boolean   @default(false)
+  company     Company?  @relation(fields: [companyId], references: [id])
+  companyId   String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// Main company model after deduplication
+model Company {
+  id              String        @id @default(cuid())
+  name            String
+  address         String?
+  industry        Industry      @relation(fields: [industryId], references: [id])
+  industryId      String
+  employeeCount   Int?
+  estimatedRevenue Float?
+  pppLoanData     PPPLoan[]
+  scrapedData     ScrapedData[]
+  confidenceScore Float?        // Confidence in data accuracy
+  status          String        // "VERIFIED", "PENDING", "NEEDS_REVIEW"
+  reports         Report[]
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model PPPLoan {
+  id          String    @id @default(cuid())
+  company     Company   @relation(fields: [companyId], references: [id])
+  companyId   String
+  loanAmount  Float
+  loanDate    DateTime
+  jobsRetained Int?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Report {
+  id          String    @id @default(cuid())
+  name        String
+  type        String    // "INDUSTRY", "COMPANY", "CUSTOM"
+  data        Json
+  industry    Industry  @relation(fields: [industryId], references: [id])
+  industryId  String
+  companies   Company[]
+  userId      String    // Clerk user ID
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// For tracking scraping jobs
+model ScrapingJob {
+  id          String    @id @default(cuid())
+  status      String    // "PENDING", "RUNNING", "COMPLETED", "FAILED"
+  source      String    // "GOOGLE_MAPS", "YELP", "BBB", etc.
+  parameters  Json
+  results     Json?
+  error       String?
+  startedAt   DateTime?
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}

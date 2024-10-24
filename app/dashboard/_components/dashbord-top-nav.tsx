@@ -8,7 +8,9 @@ import { SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/component
 import { UserProfile } from '@/components/user-profile'
 import config from '@/config'
 import { HamburgerMenuIcon } from '@radix-ui/react-icons'
-import { Banknote, Folder, HomeIcon, Settings } from 'lucide-react'
+import { Banknote, Folder, HomeIcon, Settings, SearchIcon, 
+  BrainCircuit,
+  BugPlay} from 'lucide-react'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 
@@ -26,7 +28,7 @@ export default function DashboardTopNav({ children }: { children: ReactNode }) {
           <SheetContent side="left">
             <SheetHeader>
               <Link href="/">
-                <SheetTitle>Nextjs Starter Kit</SheetTitle>
+                <SheetTitle>DealFinder</SheetTitle>
               </Link>
             </SheetHeader>
             <div className="flex flex-col space-y-3 mt-[1rem]">
@@ -46,11 +48,35 @@ export default function DashboardTopNav({ children }: { children: ReactNode }) {
                   </Button>
                 </Link>
               </DialogClose>
-              <DialogClose asChild>
+              {/* <DialogClose asChild>
                 <Link href="/dashboard/finance">
                   <Button variant="outline" className="w-full">
                     <Banknote className="mr-2 h-4 w-4" />
                     Finance
+                  </Button>
+                </Link>
+              </DialogClose> */}
+              <DialogClose asChild>
+                <Link href="/dashboard/industry-research">
+                  <Button variant="outline" className="w-full">
+                    <SearchIcon className="mr-2 h-4 w-4" />
+                    Industry Research
+                  </Button>
+                </Link>
+              </DialogClose>
+              <DialogClose asChild>
+                <Link href="/dashboard/data-scraping">
+                  <Button variant="outline" className="w-full">
+                    <BugPlay className="mr-2 h-4 w-4" />
+                    Data Scraping
+                  </Button>
+                </Link>
+              </DialogClose>
+              <DialogClose asChild>
+                <Link href="/dashboard/insights">
+                  <Button variant="outline" className="w-full">
+                    <BrainCircuit className="mr-2 h-4 w-4" />
+                    Insights
                   </Button>
                 </Link>
               </DialogClose>
