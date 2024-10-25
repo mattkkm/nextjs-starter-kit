@@ -74,7 +74,7 @@ export default function DashboardSideBar() {
             </Link>
             <Link
               className={clsx("flex items-center gap-2 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50", {
-                "flex items-center gap-2 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50": pathname === "/dashboard/industry-research"
+                "flex items-center gap-2 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50": pathname === "/dashboard/data-scraping"
               })}
               href="/dashboard/data-scraping"
             >
@@ -85,7 +85,7 @@ export default function DashboardSideBar() {
             </Link>
             <Link
               className={clsx("flex items-center gap-2 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50", {
-                "flex items-center gap-2 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50": pathname === "/dashboard/industry-research"
+                "flex items-center gap-2 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50": pathname === "/dashboard/insights"
               })}
               href="/dashboard/insights"
             >
@@ -94,7 +94,7 @@ export default function DashboardSideBar() {
               </div>
               Insights
             </Link>
-            <Separator className="my-3" />
+            {/* <Separator className="my-3" />
             <Link
               className={clsx("flex items-center gap-2 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50", {
                 "flex items-center gap-2 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50": pathname === "/dashboard/settings"
@@ -106,7 +106,7 @@ export default function DashboardSideBar() {
                 <Settings className="h-3 w-3" />
               </div>
               Settings
-            </Link>
+            </Link> */}
           </nav>
         </div>
       </div>

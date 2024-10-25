@@ -1,39 +1,25 @@
-"use client";
-import { useState } from 'react';
+import { IndustryResearchForm } from '@/components/forms/industry-research-form';
+import { IndustryResearchTable } from '@/components/industry-research/industry-research-table';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-interface IndustryResearchProps {}
+export default function IndustryResearchPage() {
+  return (
+    <div className="container mx-auto p-6 space-y-6">
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl font-bold">Industry Research</h1>
+        {/* <Button size="lg">Start Research</Button> */}
+        <IndustryResearchForm />
 
-export const IndustryResearch: React.FC<IndustryResearchProps> = () => {
-    const [isLoading, setIsLoading] = useState<boolean>(false);
-
-    const handleResearch = () => {
-        setIsLoading(true);
-        // Simulate an API call or data processing
-        setTimeout(() => {
-            setIsLoading(false);
-            alert('Industry research completed!');
-        }, 2000);
-    };
-
-    return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-            {isLoading ? (
-                <div className="text-center">
-                    <p className="text-lg font-semibold text-gray-700">Loading...</p>
-                </div>
-            ) : (
-                <div className="p-6 bg-white rounded shadow-md">
-                    <h1 className="text-2xl font-bold text-gray-800">Industry Research</h1>
-                    <button
-                        onClick={handleResearch}
-                        className="mt-4 w-full px-4 py-2 font-semibold text-white bg-blue-500 rounded hover:bg-blue-600"
-                    >
-                        Start Research
-                    </button>
-                </div>
-            )}
-        </div>
-    );
-};
-
-export default IndustryResearch;
+      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Industry Research</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <IndustryResearchTable />
+        </CardContent>
+      </Card>
+    </div>
+  );
+}

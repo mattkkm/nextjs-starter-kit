@@ -80,7 +80,7 @@ export default function DashboardTopNav({ children }: { children: ReactNode }) {
                   </Button>
                 </Link>
               </DialogClose>
-              <Separator className="my-3" />
+              {/* <Separator className="my-3" />
               <DialogClose asChild>
                 <Link href="/dashboard/settings">
                   <Button variant="outline" className="w-full">
@@ -88,7 +88,7 @@ export default function DashboardTopNav({ children }: { children: ReactNode }) {
                     Settings
                   </Button>
                 </Link>
-              </DialogClose>
+              </DialogClose> */}
             </div>
           </SheetContent>
         </Dialog>
